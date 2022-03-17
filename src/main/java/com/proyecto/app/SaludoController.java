@@ -12,7 +12,7 @@ public class SaludoController {
     private final AtomicLong contador = new AtomicLong();
 
     @GetMapping("/saludo")
-    public Saludo verSaludo(@RequestParam(value = "nombre",defaultValue = "Mundos") String nombre){
+    public Saludo verSaludo(@RequestParam(value = "nombre",defaultValue = "Mundo") String nombre){
         return new Saludo(contador.incrementAndGet(), String.format(plantilla,nombre));
     }
 }
