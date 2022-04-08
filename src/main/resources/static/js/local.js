@@ -1,12 +1,12 @@
 //funciones propias de la app
-function sendData(path){
+async function sendData(path){
     var myForm = document.getElementById("myForm");
     var formData = new FormData(myForm);
     var jsonData = {};
     for(var [k, v] of formData){//convertimos los datos a json
         jsonData[k] = v;
     }
-    const request = fetch(path, {
+    const request = await fetch(path, {
         method: 'POST',
         headers:{
             'Accept': 'application/json',
@@ -14,5 +14,5 @@ function sendData(path){
         },
         body: JSON.stringify(jsonData)
     });
-    console.log(request)
+    console.log(await request.text())
 }
