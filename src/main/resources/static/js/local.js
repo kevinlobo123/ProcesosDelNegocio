@@ -57,5 +57,6 @@ async function sendData(path){
         },
         body: JSON.stringify(jsonData)
     });
+    myForm.reset();
     console.log(await request.text())
 }
